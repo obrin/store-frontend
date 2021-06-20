@@ -1,0 +1,65 @@
+mainDeployment:
+  replicaCount: 1
+  containers:
+    app:
+      pullPolicy: IfNotPresent
+      image:
+        repository: jordanyong/store-frontend
+      ports:
+        - name: http
+          containerPort: 3000
+      resources:
+        limits:
+          cpu: 50m
+          memory: 64Mi
+        requests:
+          cpu: 50m
+          memory: 64Mi
+
+service:
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+      name: http
+
+hpa:
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - pods:
+        metricName: "pod_name:container_cpu_usage:ratio"
+        targetAverageValue: 0.6
+      type: "Pods"
+
+gateway:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "store.home.local"
+    - port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: store-home-local-cert
+      hosts:
+        - "store.home.local"
+
+vs:
+  hosts:
+    - "*"
+  gateways:
+    - store-frontend
+  http:
+    - route:
+        - destination:
+            host: store-frontend
+            port:
+              number: 80

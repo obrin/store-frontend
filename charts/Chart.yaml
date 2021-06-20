@@ -1,0 +1,11 @@
+apiVersion: v2
+description: store-frontend
+name: store-frontend
+version: 0.1.0
+type: application
+appVersion: 0.1.0
+
+dependencies:
+  - name: common
+    version: ~0.1.5
+    repository: https://obrin.github.io/helm/

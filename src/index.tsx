@@ -1,19 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-import Home from './pages/Home'
+import App from './components/App'
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
-import { client, ApolloProvider } from './utils/apolloClient'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <ApolloProvider client={client} >
-      <Home />
-    </ApolloProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

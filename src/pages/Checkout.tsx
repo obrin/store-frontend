@@ -1,10 +1,9 @@
-import React from 'react'
-import Layout from '../components/Layout'
+import Container from 'react-bootstrap/Container'
 
 const CheckoutPage = () => (
-  <Layout>
+  <Container>
     <div>Checkout Page</div>
-  </Layout>
+  </Container>
 )
 
 export default CheckoutPage

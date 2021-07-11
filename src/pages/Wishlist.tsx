@@ -1,8 +1,8 @@
-import Container from 'react-bootstrap/Container'
+import Container from '@material-ui/core/Container';
 
 const WishlistPage = () => (
-  <Container>
-    <div>Wishlist Page</div>
+  <Container maxWidth="md">
+    Wishlist
   </Container>
 )
 

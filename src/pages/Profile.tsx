@@ -1,5 +1,5 @@
-import Container from 'react-bootstrap/Container'
+import Container from '@material-ui/core/Container'
 
-const ProfilePage = () => (<Container>Profile Page</Container>)
+const ProfilePage = () => (<Container maxWidth="md">Profile Page</Container>)
 
 export default ProfilePage

@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel'
 import Card from 'react-bootstrap/Card'
-import CardColumns from 'react-bootstrap/CardColumns'
+import CardGroup from 'react-bootstrap/CardGroup'
 import Spinner from 'react-bootstrap/Spinner'
 import gql from 'graphql-tag'
 import { useQuery } from '@apollo/react-hooks'
@@ -61,7 +61,7 @@ const HomePage = () => {
         </Carousel.Item>
       </Carousel>
       <div>Featured</div>
-      <CardColumns>
+      <CardGroup>
         {data.topProducts.map(({ name }, i) => (
           <Card key={i}>
             <Card.Img
@@ -76,7 +76,7 @@ const HomePage = () => {
             </Card.Body>
           </Card>
         ))}
-      </CardColumns>
+      </CardGroup>
     </Container>
   )
 }

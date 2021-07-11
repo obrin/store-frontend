@@ -51,7 +51,7 @@ gateway:
         protocol: HTTPS
       tls:
         mode: SIMPLE
-        credentialName: store-home-local-cert
+        credentialName: home-local-cert
       hosts:
         - "store.home.local"
 

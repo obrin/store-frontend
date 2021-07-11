@@ -1,10 +1,5 @@
-import React from 'react'
-import Layout from '../components/Layout'
+import Container from 'react-bootstrap/Container'
 
-const ProfilePage = () => (
-  <Layout>
-    <div>Profile Page</div>
-  </Layout>
-)
+const ProfilePage = () => (<Container>Profile Page</Container>)
 
 export default ProfilePage

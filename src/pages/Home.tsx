@@ -2,9 +2,9 @@ import Carousel from 'react-bootstrap/Carousel'
 import Card from 'react-bootstrap/Card'
 import CardColumns from 'react-bootstrap/CardColumns'
 import Spinner from 'react-bootstrap/Spinner'
-import Layout from '../components/Layout'
 import gql from 'graphql-tag'
 import { useQuery } from '@apollo/react-hooks'
+import Container from 'react-bootstrap/Container'
 
 export const TOP_PRODUCT_QUERY = gql`
   query topProducts($first: Int!) {
@@ -18,20 +18,20 @@ export const TOP_PRODUCT_QUERY = gql`
 const HomePage = () => {
   const { data, loading, error, networkStatus } = useQuery(TOP_PRODUCT_QUERY, {
     variables: {
-      first: 12
-    }
+      first: 12,
+    },
   })
 
   if (loading) {
     return (
-      <Layout>
+      <Container>
         <Spinner animation="border" />
-      </Layout>
+      </Container>
     )
   }
 
   return (
-    <Layout>
+    <Container>
       <Carousel>
         <Carousel.Item>
           <img
@@ -77,7 +77,7 @@ const HomePage = () => {
           </Card>
         ))}
       </CardColumns>
-    </Layout>
+    </Container>
   )
 }
 

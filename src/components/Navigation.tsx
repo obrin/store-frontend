@@ -1,17 +1,9 @@
-import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 const Navigation = () => (
-  <Router>
-    
   <Navbar bg="dark" expand="lg" variant="dark">
     <Link to="/">
       <Navbar.Brand>Shop.com</Navbar.Brand>
@@ -36,7 +28,6 @@ const Navigation = () => (
       </Nav>
     </Navbar.Collapse>
   </Navbar>
-  </Router>
 )
 
 export default Navigation

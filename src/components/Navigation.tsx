@@ -1,12 +1,12 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import Container from 'react-bootstrap/Container'
+import Container from '@material-ui/core/Container'
 import { Link } from 'react-router-dom'
 
 const Navigation = () => (
   <Navbar bg="dark" expand="lg" variant="dark">
-    <Container>
+    <Container maxWidth="md">
       <Link to="/">
         <Navbar.Brand>Shop.com</Navbar.Brand>
       </Link>

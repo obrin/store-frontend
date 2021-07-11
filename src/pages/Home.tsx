@@ -4,7 +4,7 @@ import CardGroup from 'react-bootstrap/CardGroup'
 import Spinner from 'react-bootstrap/Spinner'
 import gql from 'graphql-tag'
 import { useQuery } from '@apollo/react-hooks'
-import Container from 'react-bootstrap/Container'
+import Container from '@material-ui/core/Container'
 
 export const TOP_PRODUCT_QUERY = gql`
   query topProducts($first: Int!) {
@@ -24,14 +24,14 @@ const HomePage = () => {
 
   if (loading) {
     return (
-      <Container>
+      <Container maxWidth="md">
         <Spinner animation="border" />
       </Container>
     )
   }
 
   return (
-    <Container>
+    <Container maxWidth="md">
       <Carousel>
         <Carousel.Item>
           <img

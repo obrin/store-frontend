@@ -1,6 +1,6 @@
-import React from 'react'
-import { Carousel, CardColumns } from 'react-bootstrap'
+import Carousel from 'react-bootstrap/Carousel'
 import Card from 'react-bootstrap/Card'
+import CardColumns from 'react-bootstrap/CardColumns'
 import Spinner from 'react-bootstrap/Spinner'
 import Layout from '../components/Layout'
 import gql from 'graphql-tag'

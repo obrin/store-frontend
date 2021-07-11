@@ -15,9 +15,6 @@ mainDeployment:
         requests:
           cpu: 50m
           memory: 64Mi
-      env:
-        - name: API_URI
-          value: "https://api.home.local/graphql"
 
 service:
   ports:
@@ -51,7 +48,7 @@ gateway:
         protocol: HTTPS
       tls:
         mode: SIMPLE
-        credentialName: store-home-local-cert
+        credentialName: home-local-cert
       hosts:
         - "store.home.local"
 

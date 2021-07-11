@@ -6,7 +6,7 @@ import {
 
 export const ApolloProvider = _ApolloProvider
 
-const URI = process.env.API_URI || 'http://api.home.local/graphql'
+const URI = process.env.REACT_APP_API_URI
 
 export const client = new ApolloClient({
   uri: URI,

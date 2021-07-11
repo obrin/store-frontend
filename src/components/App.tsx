@@ -1,8 +1,9 @@
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
+import { Switch, Route, BrowserRouter as Router, Link } from 'react-router-dom'
 import { client, ApolloProvider } from '../utils/apolloClient'
 import Navigation from './Navigation'
 import Home from '../pages/Home'
 import Profile from '../pages/Profile'
+import Wishlist from '../pages/Wishlist'
 
 const App = () => {
   return (
@@ -10,11 +11,14 @@ const App = () => {
       <Router>
         <Navigation />
         <Switch>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/wishlist">
+            <Wishlist />
+          </Route>
           <Route path="/">
             <Home />
-          </Route>
-          <Route path="/products">
-            <Profile />
           </Route>
         </Switch>
       </Router>

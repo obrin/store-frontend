@@ -1,10 +1,18 @@
-import Carousel from 'react-bootstrap/Carousel'
-import Card from 'react-bootstrap/Card'
-import CardGroup from 'react-bootstrap/CardGroup'
 import Spinner from 'react-bootstrap/Spinner'
 import gql from 'graphql-tag'
 import { useQuery } from '@apollo/react-hooks'
 import Container from '@material-ui/core/Container'
+import { experimentalStyled as styled } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
 
 export const TOP_PRODUCT_QUERY = gql`
   query topProducts($first: Int!) {
@@ -32,51 +40,13 @@ const HomePage = () => {
 
   return (
     <Container maxWidth="md">
-      <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://via.placeholder.com/1200x500/282c34/?text=First Image"
-          />
-          <Carousel.Caption>
-            <h3>First side label</h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad,
-              dolorem.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://via.placeholder.com/1200x500/282c34/?text=Second Image"
-          />
-          <Carousel.Caption>
-            <h3>Second side label</h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad,
-              dolorem.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-      <div>Featured</div>
-      <CardGroup>
-        {data.topProducts.map(({ name }, i) => (
-          <Card key={i}>
-            <Card.Img
-              variant="top"
-              src="https://via.placeholder.com/311x160/282c34"
-            />
-            <Card.Body>
-              <Card.Title>{name}</Card.Title>
-              <Card.Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </Card.Text>
-            </Card.Body>
-          </Card>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        {data.topProducts.map(({name}, index) => (
+          <Grid item xs={2} sm={4} md={4} key={index}>
+            <Item>{name}</Item>
+          </Grid>
         ))}
-      </CardGroup>
+      </Grid>
     </Container>
   )
 }

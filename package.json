@@ -29,7 +29,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "serve build -l 3000",
+    "start": "serve build -s -l 3000",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "build2": "true",

@@ -15,9 +15,6 @@ mainDeployment:
         requests:
           cpu: 50m
           memory: 64Mi
-      env:
-        - name: API_URI
-          value: "https://api.home.local/graphql"
 
 service:
   ports:
